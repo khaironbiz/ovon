@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_set("Asia/Jakarta");
+
 include("koneksi.php");
 include("site.php");
 session_start();
