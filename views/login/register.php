@@ -3,7 +3,7 @@ include("aksi/register.php")
 ?>
 <div class="register-box">
   <div class="register-logo">
-    <a href="#"><b>Admin</b>LTE</a><br>
+    <a href="#"><b><?= $nama_web;?></b></a><br>
     <?= rand(100000,999999) ?>
   </div>
 
@@ -24,7 +24,7 @@ include("aksi/register.php")
           <input type="text" class="form-control" placeholder="Secret Key" name="key">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-user"></span>
+              <span class="fas fa-key"></span>
             </div>
           </div>
         </div>
@@ -71,7 +71,7 @@ include("aksi/register.php")
 
       
 
-      <a href="<?= $site_url?>/login.php" class="text-center">I already have a membership</a>
+      <a href="<?= $site_url?>/login" class="text-center">I already have a membership</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

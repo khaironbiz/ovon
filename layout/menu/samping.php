@@ -87,41 +87,33 @@
             </ul>
           </li>
           <?php
-          $sql_list_admin = mysqli_query($host, "SELECT * FROM admin_data WHERE id_perawat ='$user_check'");
-          $list_admin     = mysqli_num_rows($sql_list_admin);
-          if($list_admin >0){
+          include("../core/security/admin-akses.php");
+          if($count_admin >0){
           ?>
-          <li class="nav-header">Admin Area</li>
-          <li class="nav-item">
-            <a href="<?= $site_url ?>/home/perawat.php" class="nav-link">
-              <i class="nav-icon far fa-circle text-danger"></i>
-              <p class="text">Data Anggota</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="<?= $site_url ?>/regulasi" class="nav-link">
-              <i class="nav-icon far fa-circle text-warning"></i>
-              <p>Regulasi</p>
-            </a>
-          </li>
+          <li class="nav-header">MASTER</li>
           
           <li class="nav-item">
-            <a href="<?= $site_url ?>/admin-data" class="nav-link">
-              <i class="nav-icon far fa-circle text-info"></i>
-              <p>Admin Data</p>
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-envelope"></i>
+              <p>
+                Master
+                <i class="fas fa-angle-left right"></i>
+              </p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="<?= $site_url ?>/form" class="nav-link">
-              <i class="nav-icon far fa-circle text-info"></i>
-              <p>Formulir Keperawatan</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="<?= $site_url ?>/unit/detail.php?id=349537bf357a6c8316213cfe2fc2319d" class="nav-link">
-              <i class="nav-icon far fa-circle text-info"></i>
-              <p>Unit Kerja</p>
-            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pendidikan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/wilayah/rw.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>RW</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <?php
           }
