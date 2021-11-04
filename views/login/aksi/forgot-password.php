@@ -18,6 +18,16 @@ if(isset($_POST['forgot_password'])){
         $message    = "Silahkan klik url berikut";
         $headers    = "From:" . $from;
         $send_email = mail($to,$subject,$message, $headers);
+        if($send_email){
+        $_SESSION['status']     ="Request success";
+        $_SESSION['status_info']="success";
+        echo "<script>document.location=\"$site_url/login/\"</script>";
+        }else{
+        $_SESSION['status']="Fail request";
+        $_SESSION['status_info']="danger";
+        echo "<script>document.location=\"$site_url/login/\"</script>";
+        }
+        
     }
 }
 
