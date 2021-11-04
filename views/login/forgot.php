@@ -9,6 +9,7 @@
       <form action="" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name="username">
+          <input type="hidden" class="form-control" name="forgot_password" value="<?= uniqid() ?>">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -32,8 +33,9 @@
           <!-- /.col -->
         </div>
       </form>
-
-      
+      <?php
+      include("aksi/forgot-password.php");
+      ?>
       
     </div>
     <!-- /.login-card-body -->
