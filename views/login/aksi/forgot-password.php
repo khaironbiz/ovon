@@ -5,7 +5,7 @@ if(isset($_POST['forgot_password'])){
     $time           = date("Y-m-d H:i:s");
     $sql_email      = mysqli_query($host,"SELECT * FROM users WHERE email ='$email'");
     $count_email    = mysqli_num_rows($sql_email);
-    $url_reset      = $site_url."?id=".$kode_aktifasi;
+    $url_reset      = $site_url."/login/reset-password.php?id=".$kode_aktifasi;
     $link_riset     = "<a href='$url_reset'>Reset</a>";
     if($count_email>0){
     $update_user    = mysqli_query($host, "UPDATE users SET

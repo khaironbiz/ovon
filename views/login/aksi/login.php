@@ -11,27 +11,24 @@ if (isset($_POST['key'])) {
         // Variabel username dan password
         $username   = $_POST['username'];
         $password   = md5($_POST['password']);
-
         $queryuser  = mysqli_query($host,"SELECT * FROM users WHERE email='$username'");
         $rows1      = mysqli_num_rows($queryuser);
-
         if ($rows1 < 1) {
             $_SESSION['status']="Email tidak terdaftar";
             $_SESSION['status_info']="danger";
             echo "<script>document.location=\"$site_url/login/\"</script>";
         }
         if ($rows = 1) {
-            $query  = mysqli_query($host,"SELECT * FROM users WHERE pass='$password' AND email='$username'");
-            $rows   = mysqli_num_rows($query);
-            $nira   = mysqli_fetch_array($query);
+            $query      = mysqli_query($host,"SELECT * FROM users WHERE pass='$password' AND email='$username'");
+            $rows       = mysqli_num_rows($query);
+            $data_user  = mysqli_fetch_array($query);
         }
         if ($rows == 1) {
-            $_SESSION['login_user'] = $nira['id_user']; // Membuat Sesi/session
-            $_SESSION['email'] = $nira['email']; // Membuat Sesi/session
-
-            header("location: $site_url/master/pendidikan.php"); // Mengarahkan ke halaman profil
+            $_SESSION['login_user'] = $data_user['id_user']; // Membuat Sesi/session
+            $_SESSION['email']      = $data_user['email']; // Membuat Sesi/session
+            $_SESSION['kel']        = $data_user['kel'];
+            header("location: $site_url/dashboard/"); // Mengarahkan ke halaman profil
         }
-
         if ($rows < 1) {
             $_SESSION['status']="Maaf kombinasi username dan pasword tidak sesuai";
             $_SESSION['status_info']="danger";

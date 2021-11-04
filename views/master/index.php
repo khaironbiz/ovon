@@ -40,8 +40,8 @@
                   <?php
                     include("../core/security/admin-akses.php");
                     if($count_admin >0){
-                      include("modal/add-pendidikan.php");
-                      include('aksi/add-pendidikan.php');
+                      include("modal/pendidikan/add-pendidikan.php");
+                      include('aksi/pendidikan/add-pendidikan.php');
                       }
                       
                   ?>

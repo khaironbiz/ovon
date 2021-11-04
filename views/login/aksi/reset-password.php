@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['reset_password'])){
-    $email          = $_POST['username'];
-    $kode_aktifasi  = $_POST['kode_aktifasi'];
+    $email          = $_POST['email'];
+    $kode_aktifasi  = $_POST['reset_password'];
     $time           = date("Y-m-d H:i:s");
     $pass1          = $_POST['password1'];
     $pass2          = $_POST['password2'];

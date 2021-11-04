@@ -54,34 +54,27 @@
               </p>
             </a>
           </li>
-          
-          <li class="nav-header">EXAMPLES</li>
+          <li class="nav-header">Data Kesehatan</li>
           
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
               <p>
-                Dokumen
+                Survey
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?= $site_url ?>/regulasi" class="nav-link">
+                <a href="<?= $site_url ?>/master" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Regulasi</p>
+                  <p>Pendidikan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= $site_url ?>/form" class="nav-link">
+                <a href="<?= $site_url ?>/wilayah/rw.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Formulir Keperawatan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../mailbox/read-mail.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Read</p>
+                  <p>RW</p>
                 </a>
               </li>
             </ul>
@@ -108,9 +101,27 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= $site_url ?>/wilayah/rw.php" class="nav-link">
+                <a href="<?= $site_url ?>/master/nikah.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pernikahan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/rw.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>RW</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/rt.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>RT</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/key.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Key</p>
                 </a>
               </li>
             </ul>

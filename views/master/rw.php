@@ -4,15 +4,10 @@
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
+          <div class="col-sm-12">
             <h1><?= $judul; ?></h1>
           </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active"><?= $judul; ?></li>
-            </ol>
-          </div>
+          
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -40,46 +35,65 @@
                   <?php
                     include("../core/security/admin-akses.php");
                     if($count_admin >0){
-                      include("modal/key/add-key.php");
-                      include('aksi/key/add-key.php');
+                      include("modal/rw/add-rw.php");
+                      include('aksi/rw/add-rw.php');
                       }
-                      
                   ?>
+                  
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>Secret Key</th>
-                        <th>Valid Key</th>
+                        <th>Status Pernikahan</th>
                         <th>Count</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
                       <?php
-                      $no                   = 1;
-                      $sql_m_key            = mysqli_query($host, "SELECT * FROM master_key ORDER BY id_master_key");
-                      while($data           = mysqli_fetch_array($sql_m_key)){
-                        $master_key         = $data['master_key'];
-                        $sql_count          = mysqli_query($host, "SELECT * FROM users WHERE secret_key='$master_key'");
-                        $count_data         = mysqli_num_rows($sql_count);
+                      $mykelurahan      = $_SESSION['kel'];
+                      $no               = 1;
+                      $sql_m_rw         = mysqli_query($host, "SELECT * FROM rw WHERE kel='$mykelurahan' ORDER BY nama_rw ASC");
+                      while($data       = mysqli_fetch_array($sql_m_rw)){
+                        $id_rw          = $data['id_rw'];
+                        $sql_count      = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rw ='$id_rw'");
+                        $count_data     = mysqli_num_rows($sql_count);
                       ?>
+                      
                       <tr>
                         <td width="10px"><?= $no++; ?></td>
-                        <td><?= $data['master_key'];?></td>
-                        <td><?= $data['valid_until'];?></td>
+                        <td><?= $data['nama_rw'];?></td>
                         <td><?= $count_data;?></td>
-                        <td><a href="<?= $site_url ?>/regulasi/detail.php?id=<?= $data['has_regulasi_jenis']?>" class="btn btn-primary btn-sm">Detail</a></td>
+                        <td>
+                          <?php 
+                          include('modal/rw/add-rt.php');
+                          include('aksi/rw/add-rt.php');
+                          ?>
+                        </td>
                       </tr>
                       <?php
+                        $id_rw      = $data['id_rw'];
+                        $sql_rt     = mysqli_query($host, "SELECT * FROM rt WHERE rw='$id_rw'");
+                        while($data_rt    = mysqli_fetch_array($sql_rt)){
+                        $id_rt      = $data_rt['id_rt'];
+                        $sql_count  = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rt ='$id_rt'");
+                        $count_data = mysqli_num_rows($sql_count);
+                      ?>
+                      <tr>
+                          <td></td>
+                          <td><?= $data_rt['nama_rt']?></td>
+                          <td><?= $count_data ?></td>
+                          <td></td>
+                        </tr>
+                      <?php
                         }
+                      }
                       ?>
                     </tbody>
                     <tfoot>
                       <tr>
                         <th>#</th>
-                        <th>Secret Key</th>
-                        <th>Valid Key</th>
+                        <th>Status Pernikahan</th>
                         <th>Count</th>
                         <th>Aksi</th>
                       </tr>

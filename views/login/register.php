@@ -1,19 +1,29 @@
-<?php
-include("aksi/register.php")
-?>
 <div class="register-box">
   <div class="register-logo">
-    <a href="#"><b><?= $nama_web;?></b></a><br>
-    <?= rand(100000,999999) ?>
+    <a href="<?= $site_url ?>"><b><?= $nama_web;?></b></a><br>
   </div>
 
   <div class="card">
     <div class="card-body register-card-body">
       <p class="login-box-msg">Register a new membership</p>
-
+      <?php
+      include("aksi/register.php");
+      if(isset($_SESSION['status'])&& $_SESSION['status'] !=""){
+      ?>
+        <div class="alert alert-<?= $_SESSION['status_info']?> alert-dismissible fade show" role="alert">
+          <?= $_SESSION['status']?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+      <?php
+        unset($_SESSION['status']);
+      }
+      ?>
       <form action="" method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Full name" name="user_nama">
+          <input type="hidden" class="form-control" name="add_user" value="<?= uniqid()?>">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -21,7 +31,7 @@ include("aksi/register.php")
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Secret Key" name="key">
+          <input type="number" class="form-control" placeholder="Secret Key" name="key">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-key"></span>

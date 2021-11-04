@@ -40,8 +40,8 @@
                   <?php
                     include("../core/security/admin-akses.php");
                     if($count_admin >0){
-                      include("modal/key/add-key.php");
-                      include('aksi/key/add-key.php');
+                      include("modal/nikah/add-nikah.php");
+                      include('aksi/nikah/add-nikah.php');
                       }
                       
                   ?>
@@ -49,25 +49,23 @@
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>Secret Key</th>
-                        <th>Valid Key</th>
+                        <th>Status Pernikahan</th>
                         <th>Count</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
                       <?php
-                      $no                   = 1;
-                      $sql_m_key            = mysqli_query($host, "SELECT * FROM master_key ORDER BY id_master_key");
-                      while($data           = mysqli_fetch_array($sql_m_key)){
-                        $master_key         = $data['master_key'];
-                        $sql_count          = mysqli_query($host, "SELECT * FROM users WHERE secret_key='$master_key'");
-                        $count_data         = mysqli_num_rows($sql_count);
+                      $no               = 1;
+                      $sql_m_nikah      = mysqli_query($host, "SELECT * FROM master_nikah ORDER BY id_master_nikah");
+                      while($data       = mysqli_fetch_array($sql_m_nikah)){
+                        $id_m_nikah     = $data['id_master_nikah'];
+                        $sql_count      = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE status_pernikahan ='$id_m_nikah'");
+                        $count_data     = mysqli_num_rows($sql_count);
                       ?>
                       <tr>
                         <td width="10px"><?= $no++; ?></td>
-                        <td><?= $data['master_key'];?></td>
-                        <td><?= $data['valid_until'];?></td>
+                        <td><?= $data['nama_nikah'];?></td>
                         <td><?= $count_data;?></td>
                         <td><a href="<?= $site_url ?>/regulasi/detail.php?id=<?= $data['has_regulasi_jenis']?>" class="btn btn-primary btn-sm">Detail</a></td>
                       </tr>
@@ -78,8 +76,7 @@
                     <tfoot>
                       <tr>
                         <th>#</th>
-                        <th>Secret Key</th>
-                        <th>Valid Key</th>
+                        <th>Status Pernikahan</th>
                         <th>Count</th>
                         <th>Aksi</th>
                       </tr>

@@ -8,17 +8,24 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Key</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="inputPassword3" class="col-sm-3 col-form-label">Key</label>
+                        <label for="inputPassword3" class="col-sm-3 col-form-label">Kelurahan</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputPassword3" name="master_key">
-                            <input type="hidden" class="form-control" name="add_key" value="<?= uniqid(); ?>">
+                            <input type="text" class="form-control" value="<?= $data_desa['lokasi_nama']; ?>" readonly>
+                            <input type="hidden" class="form-control" name="add_rw" value="<?= uniqid(); ?>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-3 col-form-label">Rukun Warga</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputPassword3" name="nama_rw">
+                            <input type="hidden" class="form-control" name="add_rw" value="<?= uniqid(); ?>">
                         </div>
                     </div>
                 </div>
