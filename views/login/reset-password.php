@@ -10,15 +10,8 @@ include("aksi/reset-password.php");
             <p class="login-box-msg">Reset Your Password</p>
             <form action="" method="post">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" name="user_nama" value="<?= $data_user['user_nama'] ?>" readonly>
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                        <span class="fas fa-user"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="input-group mb-3">
                 <input type="email" class="form-control" name="email" value="<?= $data_user['email'] ?>" readonly>
+                <input type="hidden" class="form-control" name="reset_password" value="<?= $data_user['kode_aktifasi'] ?>">
                     <div class="input-group-append">
                         <div class="input-group-text">
                         <span class="fas fa-envelope"></span>

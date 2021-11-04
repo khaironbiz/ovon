@@ -1,21 +1,26 @@
 <?php
-if(isset($_POST['rese_password'])){
+if(isset($_POST['reset_password'])){
     $email          = $_POST['username'];
-    $kode_aktifasi  = uniqid();
+    $kode_aktifasi  = $_POST['kode_aktifasi'];
     $time           = date("Y-m-d H:i:s");
-    $sql_email      = mysqli_query($host,"SELECT * FROM users WHERE email ='$email'");
+    $pass1          = $_POST['password1'];
+    $pass2          = $_POST['password2'];
+    if($pass1 == $pass2){
+    $sql_email      = mysqli_query($host,"SELECT * FROM users WHERE email ='$email' and kode_aktifasi='$kode_aktifasi'");
     $count_email    = mysqli_num_rows($sql_email);
+    }
     if($count_email>0){
     $update_user    = mysqli_query($host, "UPDATE users SET
-                        kode_aktifasi   = '$kode_aktifasi',
+                        pass            = '$kode_aktifasi',
                         updated_at      = '$time' WHERE
-                        email           = '$email'");
+                        email           = '$email' AND 
+                        kode_aktifasi   = '$kode_aktifasi'");
         ini_set( 'display_errors', 1 );
         error_reporting( E_ALL );
         $from       = "admin@ppni.or.id";
         $to         = $email;
         $subject    = "Reset Password";
-        $message    = "Silahkan klik url berikut";
+        $message    = "Password berhasil dirubah";
         $headers    = "From:" . $from;
         $send_email = mail($to,$subject,$message, $headers);
         if($send_email){
