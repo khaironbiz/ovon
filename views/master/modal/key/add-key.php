@@ -15,7 +15,22 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="inputPassword3" class="col-sm-3 col-form-label">Valid Key Until</label>
+                        <label for="inputPassword3" class="col-sm-3 col-form-label">Akses Kepada</label>
+                        <div class="col-sm-9">
+                            <select name="wilayah_akses" class="form-control"/ required>
+					            <option value="">---pilih level---</option>
+					            <?php 
+                                $myuser_akses   = $data_pengguna['wilayah_akses'];
+					            $sql_akses       = mysqli_query($host, "SELECT * FROM user_level WHERE wilayah_akses < '$myuser_akses'");
+					                while ($data=mysqli_fetch_array($sql_akses)){
+						                echo '<option value="'.$data['wilayah_akses'].'">'.$data['user_level'].'</option>';
+					                }
+					            ?>
+				            <select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-3 col-form-label">Expred Key</label>
                         <div class="col-sm-9">
                             <input type="date" class="form-control" name="valid_until">
                         </div>

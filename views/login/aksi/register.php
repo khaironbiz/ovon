@@ -1,6 +1,5 @@
 <?php
-session_start();
-$error = '';
+
 if(isset($_POST['add_user'])){
     $user_nama      = $_POST['user_nama'];
     $email          = $_POST['email'];
@@ -12,20 +11,24 @@ if(isset($_POST['add_user'])){
         $has_user       = md5($kode_aktifasi);
         $time           = date("Y-m-d H:i:s");
         $secret_key     = $_POST['key'];
-        $sql_key        = mysqli_query($host,"SELECT * FROM master_key WHERE master_key='$secret_key' AND valid_until > '$time'");
-        $count_key      = mysqli_num_rows($sql_key);
-        $data_key       = mysqli_fetch_array($sql_key);
-        $prov           = $data_key['prov'];
-        $kota           = $data_key['kota'];
-        $kecamatan      = $data_key['kecamatan'];
-        $kelurahan      = $data_key['kelurahan'];
-        $valid_until    = $data_key['valid_until'];
-        if($count_key==1){
+        $nik            = $_POST['nik'];
+        $sql_key        = mysqli_query($host,"SELECT * FROM master_key WHERE 
+                            master_key  ='$secret_key' AND 
+                            valid_until > '$time'");
+        $count_key      = mysqli_num_rows($sql_key);        
+        if($count_key>0){
+            $data_key       = mysqli_fetch_array($sql_key);
+            $prov           = $data_key['prov'];
+            $kota           = $data_key['kota'];
+            $kecamatan      = $data_key['kecamatan'];
+            $kelurahan      = $data_key['kelurahan'];
+            $valid_until    = $data_key['valid_until'];
             $sql_email      = mysqli_query($host,"SELECT * FROM users WHERE email ='$email'");
             $count_email    = mysqli_num_rows($sql_email);
             if($count_email<1){
                 $tambah_user=mysqli_query($host, "INSERT INTO users SET
                         user_nama       = '$user_nama',
+                        nik             = '$nik',
                         email           = '$email',
                         prov            = '$prov',
                         kota            = '$kota',

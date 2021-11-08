@@ -2,8 +2,13 @@
 if(isset($_POST['add_key'])){
     $hari_ini           = date('Y-m-d H:i:s');
     $master_key         = rand(100000,999999);
-    $valid_until        = $_POST['valid_until'];
     $kelurahan          = $_POST['kel'];
+    $wilayah_akses      = $_POST['wilayah_akses'];
+    if($wilayah_akses <30){
+    $valid_until        = $_POST['valid_until'];
+    }else{
+    $valid_until        = "2050-12-31";
+    }
     $prov               = substr($kelurahan, 0,2);
     $kota               = substr($kelurahan, 0,4);;
     $kecamatan          = substr($kelurahan, 0,8);;
@@ -14,6 +19,7 @@ if(isset($_POST['add_key'])){
         $input_data     = mysqli_query($host, "INSERT INTO master_key SET 
                             master_key      = '$master_key',
                             valid_until     = '$valid_until',
+                            wilayah_akses   = '$wilayah_akses',
                             prov            = '$prov',
                             kota            = '$kota',
                             kecamatan       = '$kecamatan',

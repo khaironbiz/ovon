@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Tambah RW
+    Tambah Data
 </button>
 <!-- Modal -->
 <form action="" method="POST">
@@ -15,19 +15,28 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="inputPassword3" class="col-sm-3 col-form-label">Kelurahan</label>
+                        <label for="inputPassword3" class="col-sm-3 col-form-label">User Level</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" value="<?= $data_desa['lokasi_nama']; ?>" readonly>
-                            <input type="hidden" class="form-control" name="add_rw" value="<?= uniqid(); ?>">
+                            <input type="text" class="form-control" name="user_level" required>
+                            <input type="hidden" class="form-control" name="add_user_level" value="<?= uniqid(); ?>">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inputPassword3" class="col-sm-3 col-form-label">Rukun Warga</label>
+                        <label for="inputPassword3" class="col-sm-3 col-form-label">Wilayah Akses</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputPassword3" name="nama_rw">
-                            <input type="hidden" class="form-control" name="add_rw" value="<?= uniqid(); ?>">
+                            <select name="wilayah_akses" class="form-control" required>
+                                <option value="">---Pilih Wilayah---</option>
+                                <option value="10">RT</option>
+                                <option value="20">RW</option>
+                                <option value="30">Desa</option>
+                                <option value="40">Kecamatan</option>
+                                <option value="50">Kabupaten</option>
+                                <option value="60">Provinsi</option>
+                                <option value="70">Indonesia</option>
+                            <select>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save</button>

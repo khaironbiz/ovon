@@ -11,10 +11,16 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
+          <?php
+          if($data_pengguna['foto'] !=''){
+          ?>
           <img src="https://ppni.or.id/simk/id/image/foto/<?= $data_pengguna['foto']?>" class="img-circle elevation-2" alt="User Image">
+          <?php
+          }
+          ?>
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?= $data_pengguna['nama']?></a>
+          <a href="#" class="d-block"><?= $data_pengguna['user_nama']?></a>
         </div>
       </div>
 
@@ -66,15 +72,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?= $site_url ?>/master" class="nav-link">
+                <a href="<?= $site_url ?>/data" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Pendidikan</p>
+                  <p>Input Data</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?= $site_url ?>/wilayah/rw.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>RW</p>
+                  <p>Rekap Data</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/wilayah/rw.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data All</p>
                 </a>
               </li>
             </ul>
@@ -109,13 +121,19 @@
               <li class="nav-item">
                 <a href="<?= $site_url ?>/master/rw.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>RW</p>
+                  <p>RW dan RT</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= $site_url ?>/master/rt.php" class="nav-link">
+                <a href="<?= $site_url ?>/master/struktur-keluarga.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>RT</p>
+                  <p>Struktur Keluarga</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/user-level.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>User Level</p>
                 </a>
               </li>
               <li class="nav-item">

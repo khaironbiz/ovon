@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Tambah RW
+<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
+    Add Struktur Keluarga
 </button>
 <!-- Modal -->
 <form action="" method="POST">
@@ -15,17 +15,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="inputPassword3" class="col-sm-3 col-form-label">Kelurahan</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" value="<?= $data_desa['lokasi_nama']; ?>" readonly>
-                            <input type="hidden" class="form-control" name="add_rw" value="<?= uniqid(); ?>">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword3" class="col-sm-3 col-form-label">Rukun Warga</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputPassword3" name="nama_rw">
-                            <input type="hidden" class="form-control" name="add_rw" value="<?= uniqid(); ?>">
+                        <label for="inputPassword3" class="col-sm-4 col-form-label">Struktur Keluarga</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="struktur_keluarga">
+                            <input type="hidden" class="form-control" name="add_struktur_keluarga" value="<?= uniqid(); ?>">
                         </div>
                     </div>
                 </div>

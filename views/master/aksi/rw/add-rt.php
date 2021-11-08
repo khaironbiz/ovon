@@ -10,7 +10,7 @@ if(isset($_POST['add_rt'])){
     $has_m_rt   = md5(uniqid());
     if(isset($kelurahan) ){
         $input_data = mysqli_query($host, "INSERT INTO rt SET 
-                        rw          = '$kelurahan',
+                        rw          = '$id_rw',
                         kel         = '$kelurahan',
                         kec         = '$kecamatan',
                         kota        = '$kota',
