@@ -1,7 +1,10 @@
 <?php
-if(isset($_POST['add_pendidikan'])){
+if(isset($_POST['add_keluarga'])){
     $hari_ini           = date('Y-m-d H:i:s');
-    $nama_pendidikan    = $_POST['nama_pendidikan'];
+    $nama_keluarga      = $_POST['nama_keluarga'];
+    $jenis_keluarga     = $_POST['jenis_keluarga'];
+    $penghasilan        = $_POST['penghasilan'];
+    $pengeluaran        = $_POST['pengeluaran'];
     $has_m_pendidikan   = md5(uniqid());
     $sql_m_pendidikan   = mysqli_query($host, "SELECT * FROM master_pendidikan WHERE nama_pendidikan='$nama_pendidikan'");
     $count              = mysqli_num_rows($sql_m_pendidikan);

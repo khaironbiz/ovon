@@ -1,5 +1,5 @@
 <?php
-include("../koneksi.php");
+include("../auth/koneksi.php");
 ?>
 <table>
     <tr>
