@@ -45,7 +45,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Sumber Air Minum</label>
                         <div class="col-sm-3">
-                            <select class="form-control" required>
+                            <select class="form-control" required name="sumber_air_minum">
                                 <option value="">---Sumber Air Minum----</option>
                                 <option value="1">Air Kemasan</option>
                                 <option value="2">Air Isi Ulang</option>
@@ -60,7 +60,7 @@
                         </div>
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Penyediaan air minum</label>
                         <div class="col-sm-4">
-                            <select class="form-control" required>
+                            <select class="form-control" required name="penyediaan_air_minum">
                                 <option value="">---Penyediaan Air Minum----</option>
                                 <option value="1">Tidak Dimasak</option>
                                 <option value="2">Dimasak</option>
@@ -70,7 +70,7 @@
                     <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-3 col-form-label">Letak Sumber Air</label>
                         <div class="col-sm-9">
-                            <select class="form-control" required>
+                            <select class="form-control" required name="sumber_air">
                                 <option value="">---Letak Sumber Air----</option>
                                 <option value="1">Di dalam rumah</option>
                                 <option value="2">Di luar rumah</option>
@@ -80,7 +80,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Jenis Jamban</label>
                         <div class="col-sm-3">
-                            <select class="form-control" required>
+                            <select class="form-control" required name="jenis_jamban">
                                 <option value="">---Jenis Jamban----</option>
                                 <option value="1">Kakus Tanki</option>
                                 <option value="2">Kakus Tanpa Tanki</option>
@@ -91,7 +91,7 @@
                         </div>
                         <label class="col-sm-2 col-form-label">Kepemilikan Jamban</label>
                         <div class="col-sm-4">
-                            <select class="form-control" required>
+                            <select class="form-control" required name="kepemilikan_jamban">
                                 <option value="">---Kepemilikan jamban----</option>
                                 <option value="1">Milik Sendiri</option>
                                 <option value="2">Milik Umum</option>
@@ -124,7 +124,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Bahan Bakar Utama</label>
                         <div class="col-sm-3">
-                            <select class="form-control" required>
+                            <select class="form-control" required name="bahan_bakar">
                                 <option value="">---Bahan Bakar----</option>
                                 <option value="1">Listrik</option>
                                 <option value="2">Gas</option>
@@ -135,7 +135,7 @@
                         </div>
                         <label class="col-sm-2 col-form-label">Kepemilikan BPJS</label>
                         <div class="col-sm-4">
-                            <select class="form-control" required>
+                            <select class="form-control" required name="bpjs">
                                 <option value="">---BPJS----</option>
                                 <option value="1">Tidak Punya</option>
                                 <option value="2">Memiliki BPJS Tetapi Tidak Lengkap</option>
@@ -150,7 +150,7 @@
                         </div>
                         <label class="col-sm-2 col-form-label">Jumlah Keluarga</label>
                         <div class="col-sm-4">
-                            <input type="number" class="form-control" placeholder="Nama Kepala Keluarga" name="jml_keluarga">
+                            <input type="number" class="form-control" placeholder="Nama Kepala Keluarga" name="jml_anggota_keluarga">
                         </div>
                     </div>
                     <div class="form-group row">

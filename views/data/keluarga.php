@@ -32,60 +32,60 @@
             <div class="card">
               <div class="card-header">
                 <div class="card-body">
-                  <h4>Desa : <?= $data_desa['lokasi_nama']?></h4>
-                  <h4>RW / RT: <?= $data_pengguna['id_rw']?> / <?= $data_pengguna['id_rt']?></h4>
                   <?php
                   if($data_pengguna['id_rw'] !=''){
                     include("../core/security/admin-akses.php");
                     if($count_admin >0){
-                      include("modal/add-data.php");
-                      include('aksi/add-data.php');
+                      include("modal/add-data-anggota.php");
+                      include('aksi/add-data-anggota.php');
                       }
                   }
-                  include("modal/edit-rw.php");
-                  include("aksi/edit-rw.php");
                   ?>
                   
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>Nama Kepala Keluarga</th>
-                        <th>Anggota Keluarga</th>
-                        <th>Aksi</th>
+                        <th>Nama Anggota</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Usia</th>
                       </tr>
                     </thead>
                     <tbody>
                       <?php
                       $no                   = 1;
-                      $sql_keluarga         = mysqli_query($host, "SELECT * FROM keluarga WHERE kelurahan = '$mydesa' ORDER BY id_keluarga DESC");
+                      $sql_keluarga         = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE key_keluarga = '$key' ORDER BY tgl_lahir DESC");
                       while($data           = mysqli_fetch_array($sql_keluarga)){
-                        $key_keluarga        = $data['key_keluarga'];
-                        $sql_count          = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE
-                                              key_keluarga ='$key_keluarga'");
-                        $count_data         = mysqli_num_rows($sql_count);
-                        $data_keluarga      = mysqli_fetch_array($sql_count)
+                          $tanggal_lahir    = $data['tgl_lahir'];
+                        function hitung_umur($tanggal_lahir){
+                            $birthDate = new DateTime($tanggal_lahir);
+                            $today = new DateTime("today");
+                            if ($birthDate > $today) { 
+                                exit("0 tahun 0 bulan 0 hari");
+                            }
+                            $y = $today->diff($birthDate)->y;
+                            $m = $today->diff($birthDate)->m;
+                            $d = $today->diff($birthDate)->d;
+                            return $y." tahun ".$m." bulan ".$d." hari";
+                        }
                       ?>
                       <tr>
                         <td width="10px"><?= $no++; ?></td>
-                        <td><?= $data['nama_keluarga'];?></td>
-                        <td><?= $count_data;?></td>
-                        <td></td>
+                        <td><?= $data['nama_anggota'];?></td>
+                        <td><?= $data['jenis_kelamin'];?></td>
+                        <td><?= hitung_umur($tanggal_lahir); ?></td>
                       </tr>
-                        <?php
-                          while($data_kel = mysqli_fetch_array($sql_count)){
-                        ?>
+                        
                       <?php
-                          }
                         }
                       ?>
                     </tbody>
                     <tfoot>
                       <tr>
                         <th>#</th>
-                        <th>Nama Kepala Keluarga</th>
-                        <th>Anggota Keluarga</th>
-                        <th>Aksi</th>
+                        <th>Nama Anggota</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Usia</th>
                       </tr>
                     </tfoot>
                   </table>
