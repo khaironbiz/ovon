@@ -50,8 +50,8 @@
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>Nama Kepala Keluarga</th>
-                        <th>Anggota Keluarga</th>
+                        <th>Nama Keluarga</th>
+                        <th>Anggota</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -81,10 +81,10 @@
                       ?>
                     </tbody>
                     <tfoot>
-                      <tr>
+                    <tr>
                         <th>#</th>
-                        <th>Nama Kepala Keluarga</th>
-                        <th>Anggota Keluarga</th>
+                        <th>Nama Keluarga</th>
+                        <th>Anggota</th>
                         <th>Aksi</th>
                       </tr>
                     </tfoot>

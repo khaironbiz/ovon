@@ -71,17 +71,16 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="agreeTerms" name="terms" value="agree" required>
-              <label for="agreeTerms">
+        <div class="input-group mb-3">
+          <div class="icheck-primary">
+            <input type="checkbox" id="agreeTerms" name="terms" value="agree" required>
+            <label for="agreeTerms">
                 I agree to the <a href="#">terms</a>
-              </label>
-            </div>
+            </label>
           </div>
-          <!-- /.col -->
-          <div class="col-4">
+        </div>
+        <div class="row">
+          <div class="col-12">
             <button type="submit" class="btn btn-primary btn-block">Register</button>
           </div>
           <!-- /.col -->
